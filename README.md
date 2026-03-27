@@ -80,3 +80,15 @@ Extend reusable-build.yml:
 
       - Depends on the build job (needs:)
        - Reads and prints the build_version output
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/6b323c35-0773-4ecf-bd81-4371fca7f4f0" />
+
+## Task 5: Reusable Workflow vs Composite Action
+
+|    |Reusable Workflow|Composite Action|
+|--------|-------|------|
+|Triggered by|workflow_call|uses: in a step|
+|Can contain jobs?|Yes|No|
+|Can contain multiple steps?|Yes|Yes|
+|Lives where?|.github/workflows/|.github/actions/|
+|Can accept secrets directly?|Yes|No|
+|Best for|Full CI/CD pipelines|Reusable small tasks / steps|
