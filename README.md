@@ -67,3 +67,16 @@ jobs:
       docker_token: ${{ secrets.DOCKER_TOKEN }}
       
   3. Push to main and watch it run
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/87398364-cac1-41fd-ab34-96649057c15b" />
+
+##  Task 4: Add Outputs to the Reusable Workflow
+
+Extend reusable-build.yml:
+
+   1. Add an outputs: section that exposes a build_version value
+    2. Inside the job, generate a version string (e.g., v1.0-<short-sha>) and set it as output
+   3. In your caller workflow, add a second job that:
+
+      - Depends on the build job (needs:)
+       - Reads and prints the build_version output
