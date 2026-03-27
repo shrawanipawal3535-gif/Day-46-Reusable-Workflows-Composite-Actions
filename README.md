@@ -40,3 +40,30 @@ Create .github/workflows/reusable-build.yml:
        - Checks out the code
        - Prints Building <app_name> for <environment>
         - Prints Docker token is set: true (never print the actual secret)
+
+         <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/8183387b-f9c8-44f7-9287-647dc6033230" />
+
+## Task 3: Create a Caller Workflow
+
+Create .github/workflows/call-build.yml:
+
+ 1. Trigger on push to main
+  2. Add a job that uses your reusable workflow:
+
+
+jobs:
+  build:
+  
+    uses: ./.github/workflows/reusable-build.yml
+    
+    with:
+    
+      app_name: "my-web-app"
+      
+      environment: "production"
+      
+    secrets:
+    
+      docker_token: ${{ secrets.DOCKER_TOKEN }}
+      
+  3. Push to main and watch it run
